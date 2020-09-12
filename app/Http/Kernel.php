@@ -37,13 +37,23 @@ class Kernel extends HttpKernel
             \Illuminate\View\Middleware\ShareErrorsFromSession::class,
             \App\Http\Middleware\VerifyCsrfToken::class,
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
+
+            // append a request id to the request
             \App\Http\Middleware\RequestId::class,
+
+            // log response times
+            \App\Http\Middleware\ResponseTimeLogger::class,
         ],
 
         'api' => [
             'throttle:api',
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
+
+            // append a request id to the request
             \App\Http\Middleware\RequestId::class,
+
+            // log response times
+            \App\Http\Middleware\ResponseTimeLogger::class,
         ],
     ];
 
